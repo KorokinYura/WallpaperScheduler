@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WallpaperScheduler.Models;
+using Xamarin.Essentials;
 
 namespace WallpaperScheduler.Services
 {
@@ -57,7 +59,14 @@ namespace WallpaperScheduler.Services
 
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
-            return await Task.FromResult(items);
+            return LoadItems();
+            //return await Task.FromResult(items);
+        }
+
+        private List<Item> LoadItems()
+        {
+            var serView = Preferences.Get("SavedItems", "");
+            return JsonConvert.DeserializeObject<List<Item>>(serView);
         }
     }
 }

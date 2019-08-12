@@ -15,6 +15,9 @@ namespace WallpaperScheduler.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
+        private bool isInitialLoad = true;
+
+
         public ObservableCollection<Item> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
@@ -34,7 +37,16 @@ namespace WallpaperScheduler.ViewModels
 
         async Task ExecuteLoadItemsCommand()
         {
-            SaveCurrentViewState();
+            // Save privious state before loading items.
+            if (!isInitialLoad)
+            {
+                SaveCurrentViewState();
+            }
+            else
+            {
+                isInitialLoad = false;
+            }
+
 
             if (IsBusy)
                 return;
@@ -65,9 +77,12 @@ namespace WallpaperScheduler.ViewModels
             try
             {
                 var serView = JsonConvert.SerializeObject(Items.ToList());
-                Preferences.Set("", serView);
+                Preferences.Set("SavedItems", serView);
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }
