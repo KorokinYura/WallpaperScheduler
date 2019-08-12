@@ -7,6 +7,9 @@ using Xamarin.Forms;
 
 using WallpaperScheduler.Models;
 using WallpaperScheduler.Views;
+using Newtonsoft.Json;
+using System.Linq;
+using Xamarin.Essentials;
 
 namespace WallpaperScheduler.ViewModels
 {
@@ -31,6 +34,8 @@ namespace WallpaperScheduler.ViewModels
 
         async Task ExecuteLoadItemsCommand()
         {
+            SaveCurrentViewState();
+
             if (IsBusy)
                 return;
 
@@ -53,6 +58,16 @@ namespace WallpaperScheduler.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        private void SaveCurrentViewState()
+        {
+            try
+            {
+                var serView = JsonConvert.SerializeObject(Items.ToList());
+                Preferences.Set("", serView);
+            }
+            catch { }
         }
     }
 }

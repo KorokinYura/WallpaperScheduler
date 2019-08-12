@@ -4,7 +4,6 @@ using Xamarin.Forms;
 
 using WallpaperScheduler.Models;
 using WallpaperScheduler.ViewModels;
-using System.Runtime.CompilerServices;
 
 namespace WallpaperScheduler.Views
 {
@@ -13,7 +12,7 @@ namespace WallpaperScheduler.Views
     [DesignTimeVisible(false)]
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        readonly ItemsViewModel viewModel;
 
         public ItemsPage()
         {
