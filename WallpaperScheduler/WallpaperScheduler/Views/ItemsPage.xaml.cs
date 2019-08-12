@@ -12,7 +12,7 @@ namespace WallpaperScheduler.Views
     [DesignTimeVisible(false)]
     public partial class ItemsPage : ContentPage
     {
-        readonly ItemsViewModel viewModel;
+        ItemsViewModel viewModel;
 
         public ItemsPage()
         {
@@ -38,6 +38,15 @@ namespace WallpaperScheduler.Views
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+        }
+
+        private void DeleteItem_Clicked(object sender, EventArgs e)
+        {
+            var item = (Item)((MenuItem)sender).CommandParameter;
+
+            viewModel.Items.Remove(item);
+
+            MessagingCenter.Send<Page>(this, "RefreshItemsPage");
         }
 
         protected override void OnAppearing()

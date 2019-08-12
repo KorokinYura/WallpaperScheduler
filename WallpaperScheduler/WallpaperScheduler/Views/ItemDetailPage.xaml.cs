@@ -29,7 +29,6 @@ namespace WallpaperScheduler.Views
         {
             base.OnDisappearing();
 
-            //MessagingCenter.Send<Page>(this, "DataRefresh");
             MessagingCenter.Send<Page>(this, "RefreshItemsPage");
         }
     }

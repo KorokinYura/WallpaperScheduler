@@ -29,10 +29,13 @@ namespace WallpaperScheduler.Views
         {
             MessagingCenter.Send(this, "AddItem", new Item
             {
+                Id = Guid.NewGuid().ToString(),
                 ImageName = picker.SelectedItem.ToString(),
                 Time = timePicker.Time
             });
             await Navigation.PopModalAsync();
+
+            MessagingCenter.Send<Page>(this, "RefreshItemsPage");
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)

@@ -25,6 +25,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Clicked="DeleteItem_Clicked" CommandParameter="{Binding .}"
+                                Text="Delete" IsDestructive="True" />
+                        </ViewCell.ContextActions>
                         <StackLayout Padding="10">
                             <Label Text="{Binding ImageName}" 
                                 d:Text="{Binding .}"
