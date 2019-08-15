@@ -1,14 +1,11 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Android.Support.V4.Content;
 using Android.Support.V4.App;
 using Android;
+using Android.Content;
 
 namespace WallpaperScheduler.Droid
 {
@@ -21,7 +18,26 @@ namespace WallpaperScheduler.Droid
 
 
 
-               TabLayoutResource = Resource.Layout.Tabbar;
+
+
+
+            // It seems that minimum interval is 60000 ms == 1 min
+            var interval = 30000;
+
+
+            var intent = new Intent(ApplicationContext, typeof(BackgroundActivity));
+            var pendingIntent = PendingIntent.GetBroadcast(ApplicationContext, 0, intent, 0);
+
+            AlarmManager alarm = (AlarmManager)ApplicationContext.GetSystemService(Context.AlarmService);
+            alarm.SetRepeating(AlarmType.RtcWakeup, Java.Lang.JavaSystem.CurrentTimeMillis(), interval, pendingIntent);
+
+
+
+
+
+
+
+            TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);

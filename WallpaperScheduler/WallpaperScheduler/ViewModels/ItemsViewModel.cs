@@ -77,7 +77,7 @@ namespace WallpaperScheduler.ViewModels
             try
             {
                 var serView = JsonConvert.SerializeObject(Items.ToList());
-                Preferences.Set("SavedItems", serView);
+                Preferences.Set(Constants.SavedItemsName, serView);
             }
             catch (Exception ex)
             {

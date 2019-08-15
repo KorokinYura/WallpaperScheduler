@@ -65,7 +65,7 @@ namespace WallpaperScheduler.Services
 
         private List<Item> LoadItems()
         {
-            var serView = Preferences.Get("SavedItems", "");
+            var serView = Preferences.Get(Constants.SavedItemsName, "");
             return JsonConvert.DeserializeObject<List<Item>>(serView);
         }
     }

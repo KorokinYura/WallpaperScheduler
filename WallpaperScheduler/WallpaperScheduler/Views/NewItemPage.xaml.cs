@@ -18,7 +18,7 @@ namespace WallpaperScheduler.Views
 
         public NewItemPage()
         {
-            ImagesNames = Directory.GetFiles(@"/sdcard/WallpaperImages").Select(n => Path.GetFileName(n)).ToList();
+            ImagesNames = Directory.GetFiles(Constants.ImagesPath).Select(n => Path.GetFileName(n)).ToList();
 
             InitializeComponent();
 
