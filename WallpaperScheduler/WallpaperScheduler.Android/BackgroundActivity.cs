@@ -28,6 +28,13 @@ namespace WallpaperScheduler.Droid
                 var timeSpan = WallpaperSpans.Where(ws => DateTime.Now.TimeOfDay.TotalMilliseconds >= ws.Time.TotalMilliseconds)
                     .OrderBy(ws => ws.Time.Milliseconds).LastOrDefault();
 
+                // If current time is less then minimum ws than get latest ws 
+                // example (cur - 1 AM, min - 9 AM, max - 21 PM, get - 21 PM)
+                if (timeSpan == null)
+                {
+                    timeSpan = WallpaperSpans.OrderBy(ws => ws.Time.TotalMilliseconds).LastOrDefault();
+                }
+
 
                 if (timeSpan.ImageName == Preferences.Get(Constants.SelectedImageName, ""))
                     return;
@@ -36,7 +43,7 @@ namespace WallpaperScheduler.Droid
                 SetWallpaperFromStream(context, imageStream);
                 Preferences.Set(Constants.SelectedImageName, timeSpan.ImageName);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 // Some unhandled exception that may break the background service
             }
