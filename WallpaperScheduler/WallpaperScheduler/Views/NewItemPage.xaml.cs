@@ -12,12 +12,15 @@ namespace WallpaperScheduler.Views
     [DesignTimeVisible(false)]
     public partial class NewItemPage : ContentPage
     {
+        public string Item { get; set; }
+
         public List<string> ImagesNames { get; private set; }
 
 
         public NewItemPage()
         {
             ImagesNames = Configurator.GetImagesNames().Select(n => Path.GetFileName(n)).ToList();
+            Item = ImagesNames[0];
 
             InitializeComponent();
 

@@ -14,7 +14,7 @@
 
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Image" FontSize="Medium" />
-        <Picker x:Name="picker" ItemsSource="{Binding ImagesNames}" SelectedItem="{Binding ImagesNames[0]}"/>
+        <Picker x:Name="picker" ItemsSource="{Binding ImagesNames}" SelectedItem="{Binding Item}"/>
         <Label Text="Time" FontSize="Medium" />
         <TimePicker x:Name="timePicker" Time="{Binding Item.Time}" />
     </StackLayout>
