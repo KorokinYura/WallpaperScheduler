@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 using WallpaperScheduler.Models;
 using System.IO;
@@ -18,7 +17,7 @@ namespace WallpaperScheduler.Views
 
         public NewItemPage()
         {
-            ImagesNames = Directory.GetFiles(Constants.ImagesPath).Select(n => Path.GetFileName(n)).ToList();
+            ImagesNames = Configurator.GetImagesNames().Select(n => Path.GetFileName(n)).ToList();
 
             InitializeComponent();
 

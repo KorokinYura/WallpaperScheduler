@@ -6,19 +6,17 @@
              mc:Ignorable="d"
              x:Class="WallpaperScheduler.Views.NewItemPage"
              Title="New Item">
-    
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
         <ToolbarItem Text="Save" Clicked="Save_Clicked" />
     </ContentPage.ToolbarItems>
-    
-    <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="Image" FontSize="Medium" />
-            <Picker x:Name="picker" ItemsSource="{Binding ImagesNames}" SelectedItem="{Binding ImagesNames[0]}"/>
-            <Label Text="Time" FontSize="Medium" />
-            <TimePicker x:Name="timePicker" Time="{Binding Item.Time}" />
-        </StackLayout>
-    </ContentPage.Content>
-    
+
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="Image" FontSize="Medium" />
+        <Picker x:Name="picker" ItemsSource="{Binding ImagesNames}" SelectedItem="{Binding ImagesNames[0]}"/>
+        <Label Text="Time" FontSize="Medium" />
+        <TimePicker x:Name="timePicker" Time="{Binding Item.Time}" />
+    </StackLayout>
+
 </ContentPage>

@@ -67,7 +67,7 @@ namespace WallpaperScheduler.Droid
 
             try
             {
-                var imgsNames = Directory.GetFiles(Constants.ImagesPath);
+                var imgsNames = Configurator.GetImagesNames();
 
                 foreach (var imageName in imgsNames)
                 {

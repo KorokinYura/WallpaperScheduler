@@ -5,21 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="WallpaperScheduler.Views.ItemDetailPage"
-             Title="{Binding Title}">
+             Title="Item Details">
 
     <StackLayout Spacing="20" Padding="15">
-        <!--<Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Item.ImageName}" d:Text="Item name" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Item.Description}" d:Text="Item description" FontSize="Small"/>-->
-
-
         <Label Text="Image" FontSize="Medium" />
         <Picker ItemsSource="{Binding ImagesNames}" SelectedItem="{Binding Item.ImageName}"/>
         <Label Text="Time" FontSize="Medium" />
-        <TimePicker Time="{Binding Item.Time}"/>
-        
-        
+        <TimePicker Time="{Binding Item.Time}" />
     </StackLayout>
-    
+
 </ContentPage>

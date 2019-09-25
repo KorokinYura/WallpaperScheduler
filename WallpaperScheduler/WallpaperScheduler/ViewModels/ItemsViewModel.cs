@@ -23,7 +23,7 @@ namespace WallpaperScheduler.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Main";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

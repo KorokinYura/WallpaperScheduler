@@ -20,47 +20,42 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout>
-        <Button x:Name="AboutButton" Text="What is Wallpaper Scheduler" Clicked="AboutClicked" />
+    <ScrollView>
+        <StackLayout>
+            <Label></Label>
+            <Button Margin="50, 0, 50, 0" x:Name="AboutButton" Text="What is Wallpaper Scheduler" Clicked="AboutClicked" />
 
-        <StackLayout x:Name="AboutStack" IsVisible="False">
-            <Label Text="some text 1"></Label>
-            <Label Text="some text 2"></Label>
-            <Label Text="some text 3"></Label>
-            <Label Text="some text 4"></Label>
-            <Label Text="some text 5"></Label>
-            <Label Text="some text 6"></Label>
-            <Label Text="some text 7"></Label>
-            <Label Text="some text 8"></Label>
+            <StackLayout x:Name="AboutStack" IsVisible="False">
+                <Label Margin="15, 0, 15, 0" FontSize="18" Text="This application is designed for scheduling wallpaper changes during the day."></Label>
+            </StackLayout>
+
+
+            <Button Margin="50, 0, 50, 0" x:Name="HowToUseButton" Text="How to use it" Clicked="HowToUseClicked" />
+
+            <StackLayout x:Name="HowToUseStack" IsVisible="False">
+                <Label Margin="15, 0, 15, 0" FontSize="18" Text="You can place your wallpapers in WallpaperImages folder on your device. After that you can select them in drop-down menus in Item Details page or New Item page."></Label>
+            </StackLayout>
+
+
+            <Button Margin="50, 0, 50, 0" x:Name="PerfomanceButton" Text="How to increase perfomance of the application" Clicked="PerfomanceClicked" />
+
+            <StackLayout x:Name="PerfomanceStack" IsVisible="False">
+                <Label Margin="30, 0, 30, 0" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20" Text="Why the application needs to run in the background"></Label>
+                <Label Margin="15, 0, 15, 0" FontSize="18" Text="If you are using the Wallpaper Scheduler make sure that the application is running in the background. If the application does not work properly try editting the background settings of Wallpaper Scheduler."></Label>
+
+                <Label></Label>
+                <Label Margin="15, 0, 15, 0" FontSize="18" TextColor="DimGray" Text="Also after reloading your device you should open the Wallpaper Scheduler to make the application work correctly."></Label>
+                
+                <Label></Label>
+                <Label Margin="30, 0, 30, 0" TextColor="Black" FontSize="20" Text="Edit background settings"></Label>
+
+                <Label Margin="15, 0, 15, 0" FontSize="18" Text="1. Open settings."></Label>
+                <Label Margin="15, 0, 15, 0" FontSize="18" Text="2. Battery &amp; perfomance."></Label>
+                <Label Margin="15, 0, 15, 0" FontSize="18" Text="3. Choose apps."></Label>
+                <Label Margin="15, 0, 15, 0" FontSize="18" Text="4. Select Wallpaper Scheduler application."></Label>
+                <Label Margin="15, 0, 15, 0" FontSize="18" Text="5. Select No restrictions."></Label>
+            </StackLayout>
         </StackLayout>
-
-
-        <Button x:Name="HowToUseButton" Text="How to use it" Clicked="HowToUseClicked" />
-
-        <StackLayout x:Name="HowToUseStack" IsVisible="False">
-            <Label Text="some text 1"></Label>
-            <Label Text="some text 2"></Label>
-            <Label Text="some text 3"></Label>
-            <Label Text="some text 4"></Label>
-            <Label Text="some text 5"></Label>
-            <Label Text="some text 6"></Label>
-            <Label Text="some text 7"></Label>
-            <Label Text="some text 8"></Label>
-        </StackLayout>
-
-
-        <Button x:Name="PerfomanceButton" Text="How to increase perfomance of the application" Clicked="PerfomanceClicked" />
-
-        <StackLayout x:Name="PerfomanceStack" IsVisible="False">
-            <Label Text="some text 1"></Label>
-            <Label Text="some text 2"></Label>
-            <Label Text="some text 3"></Label>
-            <Label Text="some text 4"></Label>
-            <Label Text="some text 5"></Label>
-            <Label Text="some text 6"></Label>
-            <Label Text="some text 7"></Label>
-            <Label Text="some text 8"></Label>
-        </StackLayout>
-    </StackLayout>
+    </ScrollView>
 
 </ContentPage>

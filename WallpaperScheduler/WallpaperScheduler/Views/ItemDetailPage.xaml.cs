@@ -18,7 +18,7 @@ namespace WallpaperScheduler.Views
         public ItemDetailPage(Item item)
         {
             Item = item;
-            ImagesNames = Directory.GetFiles(Constants.ImagesPath).Select(n => Path.GetFileName(n)).ToList();
+            ImagesNames = Configurator.GetImagesNames().Select(n => Path.GetFileName(n)).ToList();
 
             InitializeComponent();
 
